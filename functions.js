@@ -33,4 +33,38 @@ function doEaglesHaveMorale(morale){
         console.log("The Emerald Eagles dont have any morale left.");
     }
 }
-doEaglesHaveMorale(50);
+
+//So we have written this function, but you might notice, it has not actually run yet. This is because functions do not run until they are called. Let’s call the above function.
+doEaglesHaveMorale();
+
+// Now lets create a function that can be used every time the Eagles lose a match.
+const reduceMorale = (amount) => {
+    eaglesMorale -= amount;
+};
+
+reduceMorale(20);
+
+//With our function, we can call our block of code over and ocer again. Call the function again, because the Eagles just lost another match worth 12 morale.
+reduceMorale(12);
+
+//If that wasn’t all, the Eagles lost a third match. However, they were already expecting to lose, so this match is only 6 morale.
+reduceMorale(6);
+
+//At this point the Emerald Eagles have lost a few times. It would probably be a good time to check and make sure they are still up for matches. Call your doEaglesHaveMorale function.
+doEaglesHaveMorale();
+
+//Thinking about it further, shouldn’t we check to see if the Eagles still have morale after each time they lose a match? We could call the doEaglesHaveMorale function after each time they lose. But, there is an easier way to do that. Modify your reduceMorale function to call doEaglesHaveMorale after it has run all its other code.
+
+const reduceMorale = (amount) => {
+    eaglesMorale -= amount;
+    doEaglesHaveMorale();
+};
+
+//Yes, you can call functions from almost anywhere, including from inside another function.
+//It is important to know that functions can be set up to have as many parameters as you would like. In this next function, we will use two.
+//Let’s create another function that allows 2 teams to shake hands with each other.
+
+const shakeHands = function(team1, team2){
+    console.log('The ${team1} and the ${team2} shake hands.')
+}
+shakeHands('Eagles', 'Dragons')
