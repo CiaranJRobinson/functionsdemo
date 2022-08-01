@@ -33,3 +33,4 @@ function doEaglesHaveMorale(morale){
         console.log("The Emerald Eagles dont have any morale left.");
     }
 }
+doEaglesHaveMorale(50);
